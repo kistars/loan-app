@@ -30,80 +30,18 @@ npx hardhat compile
 
 ### 步骤 3：部署合约
 
-编写一个部署脚本，使用 Hardhat 将合约部署到本地或其他网络。修改部署脚本中的初始参数 `_collateralToken` 和 `_lendingToken` 的地址，以及 `mint` 的初始数量 `_amount`。
-
-部署脚本示例（`scripts/deploy.js`）：
-
-```javascript
-async function main() {
-    const [deployer] = await ethers.getSigners();
-    
-    console.log("Deploying contracts with the account:", deployer.address);
-    
-    // 部署 MockToken 作为抵押物和借贷代币
-    const MockToken = await ethers.getContractFactory("MockToken");
-    const collateralToken = await MockToken.deploy("Collateral Token", "CTK", ethers.utils.parseUnits("1000000", 18)); // 初始发行 100 万代币
-    const lendingToken = await MockToken.deploy("Lending Token", "LTK", ethers.utils.parseUnits("1000000", 18)); // 初始发行 100 万代币
-    
-    console.log("Collateral Token deployed to:", collateralToken.address);
-    console.log("Lending Token deployed to:", lendingToken.address);
-    
-    // 部署 LendingContract
-    const LendingContract = await ethers.getContractFactory("LendingContract");
-    const lendingContract = await LendingContract.deploy(collateralToken.address, lendingToken.address, ethers.utils.parseUnits("50000", 18)); // 铸造5万Lending Token给合约
-    
-    console.log("LendingContract deployed to:", lendingContract.address);
-}
-
-main().catch((error) => {
-    console.error(error);
-    process.exitCode = 1;
-});
-```
-
-运行部署脚本：
+该教程使用本地hardhat node作为测试网络进行部署，部署合约之前我们需要启动一个本地的 hardhat node。
 
 ```bash
-npx hardhat run scripts/deploy.js --network <网络名称>
+npx hardhat node
+```
+运行之后不要关闭，我们编写一个部署脚本，重新启动一个新的命令行终端，使用 Hardhat 将合约部署到本地:
+
+```bash
+npx hardhat run scripts/deploy.js --network localhost
 ```
 
-### 步骤 4：与合约交互
-
-你可以通过以下方式与合约进行交互。
-
-#### 1. 存入抵押物
-
-用户可以调用 `depositCollateral` 函数，将一定数量的抵押物代币存入合约。首先需要批准合约使用用户的抵押物代币：
-
-```javascript
-await collateralToken.connect(user).approve(lendingContract.address, depositAmount);
-await lendingContract.connect(user).depositCollateral(depositAmount);
-```
-
-#### 2. 借款
-
-用户存入足够的抵押物后，可以借出借贷代币。注意，用户的抵押物必须至少是借款金额的 150%。
-
-```javascript
-await lendingContract.connect(user).borrow(borrowAmount);
-```
-
-#### 3. 还款
-
-用户可以偿还所借的代币，通过以下步骤还款：
-
-```javascript
-await lendingToken.connect(user).approve(lendingContract.address, repayAmount);
-await lendingContract.connect(user).repay(repayAmount);
-```
-
-#### 4. 使用水龙头
-
-用户可以调用 `faucet` 函数，铸造一定数量的抵押物代币用于测试。每次调用会给用户铸造 100 个抵押物代币。
-
-```javascript
-await lendingContract.connect(user).faucet();
-```
+部署好之后可以在 运行npx hardhat node 的终端界面查看交易记录,之后就可以使用页面对我们的合约进行交互了
 
 ## 详细流程
 
