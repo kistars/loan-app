@@ -111,9 +111,8 @@ NEXT_PUBLIC_COLLATERAL_TOKEN = 0x5FbDB2315678afecb367f032d93F642f64180aa3
 
 【wallet connect】环境变量是项目需要使用wallect connect时注册的项目地址（支持移动端钱包）
 
-使用wallet connect需要一个`projectId`，可以使用本项目提供的projectId，或者到以下网站注册项目后获取projectId
+使用wallet connect需要一个`projectId`，可以使用本项目提供的projectId，或者到以下网站[reown](https://cloud.reown.com/)，注册项目后获取projectId
 
-[reown](https://cloud.reown.com/)
 
 3. 启动前台
 `npm run dev`
