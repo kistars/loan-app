@@ -179,7 +179,7 @@ export const LoanProvider = ({ children }) => {
         return () => {
             lendingContract.off("CollateralDeposited", getCTokenAmount)
             lendingContract.off("Borrowed", getLTokenAmount)
-            lendingContract.on("Repaid", getLTokenAmount);
+            lendingContract.off("Repaid", getLTokenAmount);
         }
     }, [signer, address]);
 
