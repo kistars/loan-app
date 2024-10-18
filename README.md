@@ -76,6 +76,17 @@ npx hardhat run scripts/deploy.js --network localhost
 
 # 前端
 
+## 前台交互说明
+
+- **领取平台【抵押代币】**
+- **在平台抵押【抵押代币】**
+- **借出平台【借贷代币】**
+- **返还【借贷代币】**
+
+点击质押的Card可以添加对应Token到钱包
+
+![](./loan-fe/intro.png)
+
 ## 环境搭建
 
 ### 步骤 1：安装前端依赖
@@ -117,16 +128,6 @@ NEXT_PUBLIC_COLLATERAL_TOKEN = 0x5FbDB2315678afecb367f032d93F642f64180aa3
 3. 启动前台
 `npm run dev`
 
-4. 前台交互说明
-
-- **领取平台【抵押代币】**
-- **在平台抵押【抵押代币】**
-- **借出平台【借贷代币】**
-- **返还【借贷代币】**
-
-点击质押的Card可以添加对应Token到钱包
-
-![](./loan-fe/intro.png)
 
 ### 选做步骤*： 前端部署到生产环境（使用vercel发布）
 
