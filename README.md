@@ -76,7 +76,7 @@ npx hardhat run scripts/deploy.js --network localhost
 
 # 前端
 
-## 前端部署
+## 环境搭建
 
 ### 步骤 1：安装前端依赖
 
