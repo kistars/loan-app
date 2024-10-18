@@ -1,5 +1,7 @@
 import "@rainbow-me/rainbowkit/styles.css"
 import localFont from "next/font/local";
+import { Toaster } from "react-hot-toast";
+
 import dynamic from "next/dynamic";
 import "./globals.css";
 
@@ -25,10 +27,11 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body
         style={{ inset: 0, }}
-        className={`absolute ${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`absolute ${geistSans.variable} ${geistMono.variable} antialiased `}
       >
         <ClientProvider>
           {children}
+          <Toaster />
         </ClientProvider>
       </body>
     </html>

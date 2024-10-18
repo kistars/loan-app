@@ -10,7 +10,7 @@ export function Decorator() {
         <Star
             width={48}
             top={'4%'}
-            left={'90%'}
+            left={'92%'}
         />
         <Star
             width={32}

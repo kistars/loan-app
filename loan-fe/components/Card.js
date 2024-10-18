@@ -1,5 +1,6 @@
 import cn from 'classnames'
-export function Card({ className }) {
+import Tooltip from '@mui/material/Tooltip'
+export function Card({ className, lTokenBalance = '0', cTokenBalance = '0' }) {
     return <div className={cn(className)}>
         <div
             className="uk-card uk-card-xsmall uk-text-center 
@@ -11,13 +12,25 @@ export function Card({ className }) {
             />
             <div>
                 <h2 className="uk-h6 mt-4">
-                    <a className="uk-link-reset" href="#">
-                        Balance: $1000
-                    </a>
+                    <div>
+                        Balance:
+                    </div>
                 </h2>
-                <span className="uk-text-meta">
-                    Created By @c2e
-                </span>
+                <Tooltip title={lTokenBalance}>
+                    <div className='truncate'>
+                        LToken: ${lTokenBalance}
+                    </div>
+                </Tooltip>
+                <Tooltip title={cTokenBalance}>
+                    <div className='truncate'>
+                        CToken: ${cTokenBalance}
+                    </div>
+                </Tooltip>
+                <div>
+                    <span className="uk-text-meta">
+                        Created By @c2e
+                    </span>
+                </div>
             </div>
         </div>
     </div>

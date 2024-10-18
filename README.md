@@ -89,7 +89,46 @@ npm install
 
 ### 步骤 2：启动项目（本地）
 
+1. 启动前需要先**部署合约**，部署完成后将部署的
+【借贷代币地址】、【抵押代币地址】、【借贷合约地址】添加到前台环境变量中
+
+2. 前端环境变量配置:`./loan-fe/.env.local`中配置合约环境变量
+
+```shell
+# LENDING CONTRACT ADDRESS
+NEXT_PUBLIC_LENDING = 0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0
+
+# //WALLET CONNECT 
+NEXT_PUBLIC_WALLET_CONNECT = 4acb2b2a6471177270135fc95286e645
+
+# 用于借贷的token(lending token)
+NEXT_PUBLIC_LENDING_TOKEN = 0xe7f1725e7734ce288f8367e1bb143e90bb3f0512
+
+# 用于抵押的token(collateral token)
+NEXT_PUBLIC_COLLATERAL_TOKEN = 0x5FbDB2315678afecb367f032d93F642f64180aa3
+```
+
+配置hardhat中部署合约后的各个合约地址
+
+【wallet connect】环境变量是项目需要使用wallect connect时注册的项目地址（支持移动端钱包）
+
+使用wallet connect需要一个`projectId`，可以使用本项目提供的projectId，或者到以下网站注册项目后获取projectId
+
+[reown](https://cloud.reown.com/)
+
+3. 启动前台
 `npm run dev`
+
+4. 前台交互说明
+
+- **领取平台【抵押代币】**
+- **在平台抵押【抵押代币】**
+- **借出平台【借贷代币】**
+- **返还【借贷代币】**
+
+点击质押的Card可以添加对应Token到钱包
+
+![](./loan-fe/intro.png)
 
 ### 选做步骤*： 前端部署到生产环境（使用vercel发布）
 

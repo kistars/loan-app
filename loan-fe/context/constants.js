@@ -1,19 +1,40 @@
-import toast from "react-hot-toast";
 
-const notifySuccess = (msg) => toast.success(msg, { duration: 2000 });
-const notifyError = (msg) => toast.error(msg, { duration: 2000 });
+import MOCKTOKEN from '../artifacts/contracts/MockToken.sol/MockToken.json';
+import LENDING from '../artifacts/contracts/Loan.sol/LendingContract.json';
+import { ethers } from 'ethers';
 
-export const LENDING_ABI = {};
-export const LOAN_TOKEN_ABI = {};
-export const COLLATERAL_TOKEN_ABI = {};
 
-export function toWei(amount, decimals = 18) {
-    const toWei = ethers.utils.parseUnits(amount, decimals);
-    return toWei.toString();
-  }
-  
-  export function toEth(amount, decimals = 18) {
-    const toEth = ethers.utils.formatUnits(amount, decimals);
-    return toEth.toString();
-  }
-  
+export const LENDING_ABI = LENDING.abi;
+export const LENDING_ADDRESS = process.env.NEXT_PUBLIC_LENDING;
+/**
+ * 两个token的abi相同
+ */
+export const LENDING_TOKEN_ABI = MOCKTOKEN.abi;
+export const COLLATERAL_TOKEN_ABI = MOCKTOKEN.abi;
+export const LENDING_TOKEN_ADDRESS = process.env.NEXT_PUBLIC_LENDING_TOKEN
+export const COLLATERAL_TOKEN_ADDRESS = process.env.NEXT_PUBLIC_COLLATERAL_TOKEN
+/**
+ * 抵押代币
+ */
+export const CTK = {
+    type: 'ERC20',
+    options: {
+        address: COLLATERAL_TOKEN_ADDRESS,
+        symbol: 'CTK',
+        decimals: 18,
+        // image: 'https://placekitten.com/200/300',
+    },
+}
+/**
+ * 借贷代币
+ */
+export const LTK = {
+    type: 'ERC20',
+    options: {
+        address: LENDING_TOKEN_ADDRESS,
+        symbol: 'LTK',
+        decimals: 18,
+        // image: 'https://placekitten.com/200/300',
+    },
+}
+
