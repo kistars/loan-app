@@ -87,6 +87,7 @@ export default function Home() {
           onClick={() => {
             setOperate('repay')
             setShowOperation(true)
+            setLoading(false)
           }}
           disabled={banRepay} />
         <Button

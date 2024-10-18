@@ -1,5 +1,5 @@
 'use client'
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Input from './Input';
 import Button from '@mui/material/Button';
 import { CircularProgress } from '@mui/material';
@@ -27,6 +27,12 @@ export function Operation({ setShowOperation, show, operate, request }) {
         }
         setNum(value)
     }
+    useEffect(() => {
+        const input = numRef.current.querySelector('input');
+        const value = input.value;
+        setNum(value);
+    }, [show])
+
     return <div className="new-loader-wrapper" style={{ display: show ? '' : 'none' }}>
         <div className="modal h-40 flex justify-center w-40 relative">
             {loading ? <Loading /> :
@@ -36,7 +42,7 @@ export function Operation({ setShowOperation, show, operate, request }) {
                     </button>
                     <div className='flex flex-col justify-center w-full items-center'>
                         <div className='my-2 truncate'>
-                            {operate} $ {num || 0}
+                            {operate} $ {num}
                         </div>
                         <div className='flex items-center'>
                             <div className='mr-5'>
@@ -48,7 +54,7 @@ export function Operation({ setShowOperation, show, operate, request }) {
                             <Button variant='contained'
                                 onClick={() => {
                                     request(num)
-                                        .then(r => {
+                                        .then(() => {
                                             notifySuccess("sucess");
                                             setShowOperation(false)
                                         })

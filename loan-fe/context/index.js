@@ -81,6 +81,7 @@ export const LoanProvider = ({ children }) => {
             setLoading(false)
             notifyError('deposit error');
         }
+        setLoading(false)
         return;
     }
     const loan = async (amount) => {
@@ -93,6 +94,7 @@ export const LoanProvider = ({ children }) => {
             setLoading(false);
             notifyError('loan error');
         }
+        setLoading(false)
         return;
     }
 
@@ -108,6 +110,7 @@ export const LoanProvider = ({ children }) => {
             setLoading(false);
             notifyError('repay error');
         }
+        setLoading(false)
         return;
     }
 
