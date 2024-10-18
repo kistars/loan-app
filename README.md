@@ -129,7 +129,9 @@ NEXT_PUBLIC_COLLATERAL_TOKEN = 0x5FbDB2315678afecb367f032d93F642f64180aa3
 `npm run dev`
 
 
-### 选做步骤*： 前端部署到生产环境（使用vercel发布）
+## 选做步骤*
+
+### 前端部署到生产环境*:（使用vercel发布）
 
 参考vercel文档
 https://vercel.com/
