@@ -92,7 +92,7 @@ npm install
 1. 启动前需要先**部署合约**，部署完成后将部署的
 【借贷代币地址】、【抵押代币地址】、【借贷合约地址】添加到前台环境变量中
 
-2. 前端环境变量配置:`./loan-fe/.env.local`中配置合约环境变量
+2. 前端环境变量配置:`./loan-fe/.env.local`中配置合约环境变量，内容如下
 
 ```shell
 # LENDING CONTRACT ADDRESS
@@ -108,7 +108,6 @@ NEXT_PUBLIC_LENDING_TOKEN = 0xe7f1725e7734ce288f8367e1bb143e90bb3f0512
 NEXT_PUBLIC_COLLATERAL_TOKEN = 0x5FbDB2315678afecb367f032d93F642f64180aa3
 ```
 
-配置hardhat中部署合约后的各个合约地址
 
 【wallet connect】环境变量是项目需要使用wallect connect时注册的项目地址（支持移动端钱包）
 
