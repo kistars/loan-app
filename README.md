@@ -135,3 +135,25 @@ await lendingContract.connect(user).faucet();
 2. `Borrowed`：当用户成功借款时触发。
 3. `Repaid`：当用户还款时触发。
 4. `FaucetUsed`：当用户调用水龙头领取抵押物代币时触发。
+
+# 前端
+
+## 前端部署
+
+### 步骤 1：安装前端依赖
+
+进入前端目录并安装依赖
+
+```bash
+cd loan-fe
+npm install
+```
+
+### 步骤 2：启动项目（本地）
+
+`npm run dev`
+
+### 选做步骤*： 前端部署到生产环境（使用vercel发布）
+
+参考vercel文档
+https://vercel.com/
