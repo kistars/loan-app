@@ -132,3 +132,7 @@ NEXT_PUBLIC_COLLATERAL_TOKEN = 0x5FbDB2315678afecb367f032d93F642f64180aa3
 
 参考vercel文档
 https://vercel.com/
+
+### History页面
+
+history页面显示抵押和借贷历史记录，提供一个实践方向，同学可以自行完成这块业务
