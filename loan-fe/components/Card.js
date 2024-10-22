@@ -1,5 +1,6 @@
 import cn from 'classnames'
 import Tooltip from '@mui/material/Tooltip'
+import { ethers } from 'ethers'
 export function Card({ className, lTokenBalance = '0', cTokenBalance = '0' }) {
     return <div className={cn(className)}>
         <div
@@ -18,12 +19,12 @@ export function Card({ className, lTokenBalance = '0', cTokenBalance = '0' }) {
                 </h2>
                 <Tooltip title={lTokenBalance}>
                     <div className='truncate'>
-                        LToken: ${lTokenBalance}
+                        LToken: ${ethers.utils.formatEther(lTokenBalance)} LTK
                     </div>
                 </Tooltip>
                 <Tooltip title={cTokenBalance}>
                     <div className='truncate'>
-                        CToken: ${cTokenBalance}
+                        CToken: ${ethers.utils.formatEther(cTokenBalance)} CTK
                     </div>
                 </Tooltip>
                 <div>

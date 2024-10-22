@@ -5,6 +5,7 @@ import Button from '@mui/material/Button';
 import { CircularProgress } from '@mui/material';
 import { Close } from './Close';
 import { notifyError, notifySuccess, useLoanContext } from '@/context';
+import { ethers } from 'ethers';
 
 function Loading() {
     return <div className='w-full h-[160px] flex items-center justify-center'>
@@ -53,7 +54,11 @@ export function Operation({ setShowOperation, show, operate, request }) {
                             </div>
                             <Button variant='contained'
                                 onClick={() => {
-                                    request(num)
+                                    /**
+                                     * 转化成ether单位
+                                     */
+                                    const eth = ethers.utils.parseEther(num);
+                                    request(eth)
                                         .then(() => {
                                             notifySuccess("sucess");
                                             setShowOperation(false)
