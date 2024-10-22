@@ -115,10 +115,10 @@ export const LoanProvider = ({ children }) => {
     }
 
     const faucet = async () => {
-        try{
+        try {
             const lendingContract = getLendingContract();
             lendingContract.faucet();
-        }catch(e){
+        } catch (e) {
             notifyError('faucet error');
         }
     }
