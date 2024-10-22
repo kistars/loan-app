@@ -53,7 +53,7 @@ contract LendingContract {
 
     // Faucet 功能用于领取抵押物代币（collateralToken）
     function faucet() external {
-        collateralToken.mint(msg.sender, 100);
-        emit FaucetUsed(msg.sender, 100);
+        collateralToken.mint(msg.sender, 100*1e18);
+        emit FaucetUsed(msg.sender, 100*1e18);
     }
 }
