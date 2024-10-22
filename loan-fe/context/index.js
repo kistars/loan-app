@@ -115,8 +115,12 @@ export const LoanProvider = ({ children }) => {
     }
 
     const faucet = async () => {
-        const lendingContract = getLendingContract();
-        lendingContract.faucet();
+        try{
+            const lendingContract = getLendingContract();
+            lendingContract.faucet();
+        }catch(e){
+            notifyError('faucet error');
+        }
     }
 
     /**
