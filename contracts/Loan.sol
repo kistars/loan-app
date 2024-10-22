@@ -34,6 +34,8 @@ contract LendingContract {
         require(_amount > 0, "Amount must be greater than zero");
         require(collateralBalances[msg.sender] >= _amount * 150 / 100, "Insufficient collateral"); // 150% 过度抵押
 
+        collateralBalances[msg.sender] -= _amount * 150 / 100;
+
         debt[msg.sender] += _amount;
 
         lendingToken.transfer(msg.sender, _amount);
@@ -45,6 +47,8 @@ contract LendingContract {
     function repay(uint256 _amount) external {
         require(debt[msg.sender] > 0, "No outstanding debt");
         lendingToken.transferFrom(msg.sender, address(this), _amount);
+
+        collateralBalances[msg.sender] += _amount * 150 / 100;
 
         debt[msg.sender] -= _amount;
 
