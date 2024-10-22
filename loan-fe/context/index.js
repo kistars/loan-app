@@ -124,6 +124,7 @@ export const LoanProvider = ({ children }) => {
      */
     useEffect(() => {
         if (!provider || !address || !signer) return;
+        const lendingContract = getLendingContract();
         const getCTokenBalance = async () => {
             const collateralTokenContract = getCTokenContract();
             // collateral token balance
@@ -138,15 +139,20 @@ export const LoanProvider = ({ children }) => {
             const amount = ltb.toString();
             setLTokenBalance(amount)
         }
+        getCTokenBalance();
+        getLTokenBalance();
 
         provider.on("block", getCTokenBalance)
         provider.on("block", getLTokenBalance)
+        lendingContract.on("FaucetUsed", getCTokenBalance);
+
 
         return () => {
             provider.off("block", getCTokenBalance)
             provider.off("block", getLTokenBalance)
+            lendingContract.off("FaucetUsed", getCTokenBalance)
         }
-    }, [provider, address, signer])
+    }, [provider, address, signer, getCTokenContract, getCTokenContract, getLendingContract])
 
     /**
      * 实时更新用户抵押/借贷token的数量
