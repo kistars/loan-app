@@ -19,12 +19,12 @@ export function Card({ className, lTokenBalance = '0', cTokenBalance = '0' }) {
                 </h2>
                 <Tooltip title={lTokenBalance}>
                     <div className='truncate'>
-                        LToken: ${ethers.utils.formatEther(lTokenBalance)} LTK
+                        LTK: ${lTokenBalance}
                     </div>
                 </Tooltip>
                 <Tooltip title={cTokenBalance}>
                     <div className='truncate'>
-                        CToken: ${ethers.utils.formatEther(cTokenBalance)} CTK
+                        CTK: ${cTokenBalance}
                     </div>
                 </Tooltip>
                 <div>

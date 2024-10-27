@@ -1918,20 +1918,8 @@
   height: 1em;
   overflow: hidden;
 }
-:root:not(.dom-ready) *,
-:root:not(.dom-ready) ::after,
-:root:not(.dom-ready) ::before {
-  transition: none !important;
-}
-:root:not(.dom-ready) .material-icons,
-:root:not(.dom-ready) .material-icons-outlined,
-:root:not(.dom-ready) .material-icons-round,
-:root:not(.dom-ready) .material-icons-sharp,
-:root:not(.dom-ready) .material-icons-two-tone {
-  width: auto;
-  height: auto;
-  overflow: auto;
-}
+
+
 :root {
   --font-family-primary: "Mabry Pro", "Space Grotesk", -apple-system,
     BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
