@@ -141,3 +141,4 @@ https://vercel.com/
 history页面显示抵押和借贷历史记录，提供一个实践方向，同学可以补充完成这块业务
 
 ## 笔记连接
+https://cookie-tumbleweed-6a4.notion.site/Loan-12c39d28bab380698792e00106725cd5
