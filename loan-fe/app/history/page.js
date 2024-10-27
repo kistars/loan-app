@@ -48,6 +48,7 @@ const rows = [{
   action: "Deposit"
 }]
 export default function History() {
+  console.log(process.env.NEXT_PUBLIC_AAA)
   return <div className="w-full flex mt-20">
     <div className="mx-16 mr-10 w-[800px]">
       <DataGrid

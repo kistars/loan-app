@@ -1,5 +1,6 @@
 'use client'
 import { Decorator } from "@/components/Decorator"
+import { getBalance } from "@wagmi/core"
 import { Card } from "@/components/Card"
 import { ClaimButton } from '@/components/ClaimButton'
 import { Detail } from '@/components/Detail'
@@ -24,6 +25,7 @@ export default function Home() {
     setLoading,
     addToken
   } = useLoanContext();
+  
 
   const banLoan = cTokenAmount === '0'
   const banRepay = lTokenAmount === '0'
@@ -63,7 +65,7 @@ export default function Home() {
         img={'/assets/images/objects/bitcoin-01.png'}
         name='Lending Token'
         tokenAmount={lTokenAmount}
-        addToken={()=>{
+        addToken={() => {
           addToken(LTK)
         }}
       />
@@ -74,7 +76,7 @@ export default function Home() {
         img={'/assets/images/objects/ethereum-01.png'}
         name='Collateral Token'
         tokenAmount={cTokenAmount}
-        addToken={()=>{
+        addToken={() => {
           addToken(CTK)
         }}
       />

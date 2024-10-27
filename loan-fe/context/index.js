@@ -74,7 +74,8 @@ export const LoanProvider = ({ children }) => {
             const lendingContract = getLendingContract();
             const cTokenContract = getCTokenContract();
             setLoading(true);
-            await cTokenContract.approve(LENDING_ADDRESS, amount);
+            const tx = await cTokenContract.approve(LENDING_ADDRESS, amount);
+            await tx.wait();
             await lendingContract.depositCollateral(amount);
         } catch (e) {
             console.log(e)
@@ -103,7 +104,8 @@ export const LoanProvider = ({ children }) => {
             const lendingContract = getLendingContract();
             const lTokenContract = getLTokenContract();
             setLoading(true);
-            await lTokenContract.approve(LENDING_ADDRESS, amount);
+            const tx = await lTokenContract.approve(LENDING_ADDRESS, amount);
+            await tx.wait();
             await lendingContract.repay(amount);
         } catch (e) {
             console.log(e)

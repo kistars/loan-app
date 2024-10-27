@@ -15,6 +15,7 @@ export const LENDING_TOKEN_ADDRESS = process.env.NEXT_PUBLIC_LENDING_TOKEN
 export const COLLATERAL_TOKEN_ADDRESS = process.env.NEXT_PUBLIC_COLLATERAL_TOKEN
 /**
  * 抵押代币
+ * EIP747
  */
 export const CTK = {
     type: 'ERC20',
