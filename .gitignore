@@ -1,9 +1,10 @@
 node_modules
 .env
+yarn.lock
 
 # Hardhat files
 /cache
-/artifacts
+artifacts
 
 # TypeChain files
 /typechain
